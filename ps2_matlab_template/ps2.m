@@ -16,7 +16,7 @@ figure; imshow(D_L_box); title('ps2-1-a-1');
 Image = getframe(gcf);
 imwrite(Image.cdata,['output',filesep,'ps2-1-a-1.png']);
 close;
-figure; imshow(D_R_box); title('ps2-1-a-2');
+figure; imshow(abs(D_R_box)); title('ps2-1-a-2');
 Image = getframe(gcf);
 imwrite(Image.cdata,['output',filesep,'ps2-1-a-2.png']);
 close;
@@ -29,5 +29,5 @@ R = rgb2gray(R);
 D_L = disparity_ssd(L, R);
 D_R = disparity_ssd(R, L);
 newDL = D_L/max(max(D_R));
-figure; imshow(abs(newDL))
+figure; imshow(abs(newDL)); title()
 figure; imshow(abs(D_R/max(max(D_R))))
