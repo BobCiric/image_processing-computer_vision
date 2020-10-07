@@ -18,7 +18,7 @@ tic
     for i = 2:1:dim(1)-1
         for j = 2:1:dim(2)-1
             template = L(i-1:i+1,j-1:j+1); % template with a window size of 3
-            parfor jj = 2:dim(2)-1 %sliding the template across the strip
+            for jj = 2:dim(2)-1 %sliding the template across the strip
               comp = R(i-1:i+1,jj-1:jj+1);
               ssd(jj) = sum((comp - template).^2,'all');
             end
